@@ -11,5 +11,12 @@ Build cross platform applications preferably both web and mobile for easy mobili
 * Data storage to use.
 
 * supported programming languages
+	- [Laravel Framework](https://laravel.com/docs/5.4).
+	- [Vue](https://vuejs.org).
 
 * Supported media of information
+
+
+## Contributing
+
+The contribution guide can be found in the [Wiki](http://laravel.com/docs/contributions).
