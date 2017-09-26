@@ -1,95 +1,119 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
+@section('content')
+    
+    <header class="section__title">
+        <h2>8,243 Properties for Sale, Rent & Real Estate</h2>
+        <small>Villas, Apartments, Office Spaces and Commercial Builsings</small>
+    </header>
 
-        <title>Data Grip</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card__header card__header--minimal">
+                    <h2>Recent Properties for Sale</h2>
+                    <small>Nunc urnami tempor eget ipsum eurutrum gravida tellus</small>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="grid-widget grid-widget--listings">
+                    <div class="col-xs-6">
+                        <a class="grid-widget__item" href="listing-detail.html">
+                            <img src="img/demo/listing/thumbs/9.jpg" alt="">
+
+                            <div class="grid-widget__info">
+                                <h3>$3,452,000</h3>
+                                <small>4313 Beverly Hills, CA 90210</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="grid-widget__item" href="listing-detail.html">
+                            <img src="img/demo/listing/thumbs/10.jpg" alt="">
+
+                            <div class="grid-widget__info">
+                                <h3>$990,000</h3>
+                                <small>San Francisco, CA 937202</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="grid-widget__item" href="listing-detail.html">
+                            <img src="img/demo/listing/thumbs/11.jpg" alt="">
+
+                            <div class="grid-widget__info">
+                                <h3>1,500,000</h3>
+                                <small>21 Shop St, San Francisco</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="grid-widget__item" href="listing-detail.html">
+                            <img src="img/demo/listing/thumbs/12.jpg" alt="">
+
+                            <div class="grid-widget__info">
+                                <h3>$1,650,690</h3>
+                                <small>13 Beverly Hills, CA 01210</small>
+                            </div>
+                        </a>
+                    </div>
                 </div>
+
+                <a class="view-more" href="grid-listings.html">
+                    View all properties for sale <i class="zmdi zmdi-long-arrow-right"></i>
+                </a>
             </div>
         </div>
-    </body>
-</html>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card__header card__header--minimal">
+                    <h2>Recent Properties for Rent</h2>
+                    <small>Suspendisse quis massa fringilla sagittis velit utultrices tellus</small>
+                </div>
+
+                <div class="grid-widget grid-widget--listings">
+                    <div class="col-xs-6">
+                        <a class="grid-widget__item" href="listing-detail.html">
+                            <img src="img/demo/listing/thumbs/13.jpg" class="img-responsive" alt="">
+                            <div class="grid-widget__info">
+                                <h3>$1,810,000</h3>
+                                <small>4313 Beverly Hills, CA 90210</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="grid-widget__item" href="listing-detail.html">
+                            <img src="img/demo/listing/thumbs/14.jpg" alt="">
+                            <div class="grid-widget__info">
+                                <h3>$1,782,890</h3>
+                                <small>700 Folcon St, San Fransisco, CA</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="grid-widget__item" href="listing-detail.html">
+                            <img src="img/demo/listing/thumbs/15.jpg" alt="">
+                            <div class="grid-widget__info">
+                                <h3>$823,000</h3>
+                                <small>1100 Sea avn, San Fransisco, CA</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="grid-widget__item" href="listing-detail.html">
+                            <img src="img/demo/listing/thumbs/16.jpg" alt="">
+                            <div class="grid-widget__info">
+                                <h3>$2,543,000</h3>
+                                <small>132 04th St, San Francisco</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <a class="view-more" href="grid-listings.html">
+                    View all properties for rent <i class="zmdi zmdi-long-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+@endsection
