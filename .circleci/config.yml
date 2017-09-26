@@ -22,7 +22,6 @@ jobs:
       #     background: true
 
       - run: sudo apt install -y libsqlite3-dev
-      # - run: composer self-update
       - run: composer --version
       - restore_cache:
           keys:
@@ -35,33 +34,6 @@ jobs:
             - vendor
       - run: touch storage/testing.sqlite
       - run: php artisan migrate --env=testing --database=sqlite_testing --force
-      
-      # - run: ./vendor/bin/codecept build
-      # - run: ./vendor/bin/codecept run
-
-      # - run: sudo apt install -y libsqlite3-dev
-
-      # # Download and cache dependencies
-      # - restore_cache:
-      #     keys:
-      #     - v1-dependencies-{{ checksum "composer.json" }}
-      #     # fallback to using the latest cache if no exact match is found
-      #     - v1-dependencies-
-
-      # - run: composer install -n --prefer-dist
-
-      # - save_cache:
-      #     paths:
-      #       - ./vendor
-      #     key: v1-dependencies-{{ checksum "composer.json" }}
-
-      # - run: touch storage/testing.sqlite
-      # - run: php artisan migrate --env=testing --database=sqlite_testing --force
-      # - run: ./vendor/bin/codecept build
-      # - run: ./vendor/bin/codecept run
-
-      # - run: php artisan migrate:refresh --env=testing --force
-      # - run: php artisan db:seed
       
       # run tests!
       - run: vendor/bin/phpunit
