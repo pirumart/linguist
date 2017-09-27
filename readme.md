@@ -19,4 +19,4 @@ To build an easy to use tool that will aid information gathering for future proj
 
 ## Contributing
 
-The contribution guide can be found in the [Wiki](https://github.com/street-lights/data-collection-tool/wiki/Welcome).
+The contribution guide can be found in the [Wiki](https://github.com/street-lights/data-collection-tool/wiki).
