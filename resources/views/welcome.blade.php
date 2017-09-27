@@ -1,95 +1,119 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
+@section('content')
+    
+    <header class="section__title">
+        <h2>What would you like to learn today? </h2>
+        <small>select from a variety of categories below</small>
+    </header>
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card__header card__header--minimal">
+                    <h2>Basics</h2>
+                    <small>Beginner level</small>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="grid-widget grid-widget--listings">
+                    <div class="col-xs-6">
+                        <a class="grid-widget__item" href="/">
+                            <img src="img/1.jpg" alt="">
+
+                            <div class="grid-widget__info">
+                                <h3>Greetings</h3>
+                                <small>3 lessons</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="grid-widget__item" href="/">
+                            <img src="img/1.jpg" alt="">
+
+                            <div class="grid-widget__info">
+                                <h3>Directions</h3>
+                                <small>6 lessons</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="grid-widget__item" href="/">
+                            <img src="img/1.jpg" alt="">
+
+                            <div class="grid-widget__info">
+                                <h3>Home</h3>
+                                <small>9 lessons</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="grid-widget__item" href="/">
+                            <img src="img/1.jpg" alt="">
+
+                            <div class="grid-widget__info">
+                                <h3>Time</h3>
+                                <small>5 lessons</small>
+                            </div>
+                        </a>
+                    </div>
                 </div>
+
+                <a class="view-more" href="grid-listings.html">
+                    Show me more <i class="zmdi zmdi-long-arrow-right"></i>
+                </a>
             </div>
         </div>
-    </body>
-</html>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card__header card__header--minimal">
+                    <h2>People</h2>
+                    <small>Growth Level</small>
+                </div>
+
+                <div class="grid-widget grid-widget--listings">
+                    <div class="col-xs-6">
+                        <a class="grid-widget__item" href="/">
+                            <img src="img/1.jpg" class="img-responsive" alt="">
+                            <div class="grid-widget__info">
+                                <h3>Family</h3>
+                                <small>6 lessons</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="grid-widget__item" href="/">
+                            <img src="img/1.jpg" alt="">
+                            <div class="grid-widget__info">
+                                <h3>Work</h3>
+                                <small>4 lessons</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="grid-widget__item" href="/">
+                            <img src="img/1.jpg" alt="">
+                            <div class="grid-widget__info">
+                                <h3>Community</h3>
+                                <small>11 lessons</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="grid-widget__item" href="/">
+                            <img src="img/1.jpg" alt="">
+                            <div class="grid-widget__info">
+                                <h3>Conversation</h3>
+                                <small>13 lessons</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <a class="view-more" href="grid-listings.html">
+                    Show me more <i class="zmdi zmdi-long-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+@endsection
