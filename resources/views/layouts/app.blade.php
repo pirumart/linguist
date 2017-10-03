@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" id="csrf_token" content="{{ csrf_token() }}">
         <title>DataGrip</title>
 
         <link rel="shortcut icon" href="/img/favicon.png">
@@ -27,6 +28,8 @@
         <link rel="stylesheet" href="css/app_1.css">
         <link rel="stylesheet" href="css/app_2.css">
 
+        {{-- {{ csrf_token() }} --}}
+
         <!-- Page Loader JS -->
         <script src="js/page-loader.min.js" async></script>
 
@@ -38,111 +41,129 @@
         <!-- End page loader -->
 
         <header id="header">
-            {{-- <div class="header__top">
+            <div class="header__top">
                 <div class="container">
                     <ul class="top-nav">
-                        <li class="dropdown top-nav__guest">
-                            <a data-toggle="dropdown" href="">Register</a>
+                        @if(!Auth::check())
+                            <li class="dropdown top-nav__guest">
+                                <a data-toggle="dropdown" href="">Register</a>
 
-                            <form class="dropdown-menu stop-propagate">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Email Address">
-                                    <i class="form-group__bar"></i>
+                                <form class="dropdown-menu stop-propagate" method="POST" action="{{ route('register') }}">
+                                    {{ csrf_field() }}
+
+                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                        <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" 
+                                                placeholder="Name" required autofocus>
+                                        <i class="form-group__bar"></i>
+                                        @if ($errors->has('name'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('name') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" 
+                                                placeholder="Email Address" required>
+                                        <i class="form-group__bar"></i>
+                                        @if ($errors->has('email'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                        <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
+                                        <i class="form-group__bar"></i>
+                                        @if ($errors->has('password'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('password') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" 
+                                            placeholder="Confirm Password" required>
+                                        <i class="form-group__bar"></i>
+                                    </div>
+
+                                    <p><small>By Signing up with Roost, you're agreeing to our <a href="">terms and conditions</a>.</small></p>
+
+                                    <button class="btn btn-primary btn-block m-t-10 m-b-10" type="submit">Register</button>
+                                </form>
+                            </li>
+
+                            <li class="dropdown top-nav__guest">
+                                <a data-toggle="dropdown" href="" data-rmd-action="switch-login">Login</a>
+
+                                <div class="dropdown-menu">
+                                    <div class="tab-content">
+                                        <form class="tab-pane active in fade" id="top-nav-login" method="POST" action="{{ route('login') }}">
+                                            {{ csrf_field() }}
+                                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" 
+                                                        placeholder="Email Address" required autofocus>
+                                                <i class="form-group__bar"></i>
+                                                @if ($errors->has('email'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('email') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+
+                                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                                <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
+                                                <i class="form-group__bar"></i>
+
+                                                @if ($errors->has('password'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('password') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+
+                                            <button class="btn btn-primary btn-block m-t-10 m-b-10" type="submit">Login</button>
+
+                                            <div class="text-center">
+                                                <a href="#top-nav-forgot-password" data-toggle="tab"><small>Forgot email/password?</small></a>
+                                            </div>
+                                        </form>
+
+                                        <form class="tab-pane fade forgot-password" id="top-nav-forgot-password">
+                                            <a href="#top-nav-login" class="top-nav__back" data-toggle="tab"></a>
+
+                                            <p>Enter your email address you registered with so that we can forward you a reset link.</p>
+
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Emaill Address">
+                                                <i class="form-group__bar"></i>
+                                            </div>
+
+                                            <button class="btn btn-warning btn-block">Reset Password</button>
+                                        </form>
+                                    </div>
                                 </div>
+                            </li>
+                        @endif
 
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Password">
-                                    <i class="form-group__bar"></i>
-                                </div>
+                        @if(Auth::check())
+                            <li class="dropdown">
+                                <a href="" data-toggle="dropdown">Hi {{ Auth::user()->name }}!</a>
 
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Confirm Password">
-                                    <i class="form-group__bar"></i>
-                                </div>
-
-                                <p><small>By Signing up with Roost, you're agreeing to our <a href="">terms and conditions</a>.</small></p>
-
-                                <button class="btn btn-primary btn-block m-t-10 m-b-10">Register</button>
-
-                                <div class="text-center"><small><a href="">Are you an Agent?</a></small></div>
-
-                                <div class="top-nav__auth">
-                                    <span>or</span>
-
-                                    <div>Sign in using</div>
-
-                                    <a href="" class="mdc-bg-blue-500">
-                                        <i class="zmdi zmdi-facebook"></i>
-                                    </a>
-
-                                    <a href="" class="mdc-bg-cyan-500">
-                                        <i class="zmdi zmdi-twitter"></i>
-                                    </a>
-
-                                    <a href="" class="mdc-bg-red-400">
-                                        <i class="zmdi zmdi-google"></i>
-                                    </a>
-                                </div>
-
-                            </form>
-                        </li>
-
-                        <li class="dropdown top-nav__guest">
-                            <a data-toggle="dropdown" href="" data-rmd-action="switch-login">Login</a>
-
-                            <div class="dropdown-menu">
-                                <div class="tab-content">
-                                    <form class="tab-pane active in fade" id="top-nav-login">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Email Address">
-                                            <i class="form-group__bar"></i>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password">
-                                            <i class="form-group__bar"></i>
-                                        </div>
-
-                                        <button class="btn btn-primary btn-block m-t-10 m-b-10">Login</button>
-
-                                        <div class="text-center">
-                                            <a href="#top-nav-forgot-password" data-toggle="tab"><small>Forgot email/password?</small></a>
-                                        </div>
-
-                                        <div class="top-nav__auth">
-                                            <span>or</span>
-
-                                            <div>Sign in using</div>
-
-                                            <a href="" class="mdc-bg-blue-500">
-                                                <i class="zmdi zmdi-facebook"></i>
-                                            </a>
-
-                                            <a href="" class="mdc-bg-cyan-500">
-                                                <i class="zmdi zmdi-twitter"></i>
-                                            </a>
-
-                                            <a href="" class="mdc-bg-red-400">
-                                                <i class="zmdi zmdi-google"></i>
-                                            </a>
-                                        </div>
-                                    </form>
-
-                                    <form class="tab-pane fade forgot-password" id="top-nav-forgot-password">
-                                        <a href="#top-nav-login" class="top-nav__back" data-toggle="tab"></a>
-
-                                        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Emaill Address">
-                                            <i class="form-group__bar"></i>
-                                        </div>
-
-                                        <button class="btn btn-warning btn-block">Reset Password</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </li>
+                                <ul class="dropdown-menu">
+                                    <li><a href="">Profile</a></li>
+                                    <li><a href="">Logout</a></li>
+                                </ul>
+                            </li>
+                            <li class="top-nav__icon">
+                                <a href="">
+                                    <i class="zmdi zmdi-notifications"></i>
+                                    <i class="top-nav__alert"></i>
+                                </a>
+                            </li>
+                        @endif
 
                         <li class="pull-right top-nav__icon">
                             <a href=""><i class="zmdi zmdi-facebook"></i></a>
@@ -154,11 +175,11 @@
                             <a href=""><i class="zmdi zmdi-google"></i></a>
                         </li>
 
-                        <li class="pull-right hidden-xs"><span><i class="zmdi zmdi-email"></i>hello@Roost.com</span></li>
-                        <li class="pull-right hidden-xs"><span><i class="zmdi zmdi-phone"></i>001-541-754-3010</span></li>
+                        <li class="pull-right hidden-xs"><span><i class="zmdi zmdi-email"></i>hello@streetlights.org</span></li>
+                        <li class="pull-right hidden-xs"><span><i class="zmdi zmdi-phone"></i>256-xxx-xxx-xxxx</span></li>
                     </ul>
                 </div>
-            </div> --}}
+            </div>
 
             <div class="header__main">
                 <div class="container">
@@ -180,6 +201,12 @@
                         <li>
                             <a href="/">Home</a>
                         </li>
+
+                        @if(Auth::check())
+                        <li>
+                            <a href="/dashboard">Dashboard</a>
+                        </li>
+                        @endif
 
                         <li class="navigation__dropdown">
                             <a href="" class="prevent-default">Basics</a>
@@ -348,7 +375,7 @@
                             </address>
 
                             <div class="f-20">256-xxxxxxxx</div>
-                            <div class="f-14 m-t-5">hello@streetlights.com</div>
+                            <div class="f-14 m-t-5">hello@streetlights.org</div>
 
                             <div class="f-20 m-t-20">
                                 <a href="" class="m-r-10"><i class="zmdi zmdi-google"></i></a>
@@ -395,7 +422,6 @@
                     <a href="">Terms & Conditions</a>
                     <a href="">Privacy Policy</a>
                     <a href="">Contribute</a>
-                    <a href="">Login</a>
                 </div>
 
                 <div class="footer__to-top" data-rmd-action="scroll-to" data-rmd-target="html">
