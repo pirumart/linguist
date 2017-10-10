@@ -1,39 +1,53 @@
-version: 2
 jobs:
   build:
-    docker:
-      - image: circleci/php:latest
-
     working_directory: ~/laravel
+    docker:
+      - image: notnoopci/php:7.1-apache-node
+      - image: circleci/mysql:5.7
+        environment:
+          - MYSQL_HOST=localhost
+          - MYSQL_USER=ubuntu
+          - MYSQL_PASSWORD=
+          - MYSQL_ALLOW_EMPTY_PASSWORD=true
+          - MYSQL_DATABASE=circle_test
 
     steps:
+      - run:
+          name: Install PHP extensions
+          command: sudo docker-php-ext-install pdo_mysql
+      - run:
+          name: Install Composer
+          command: 'curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer'
+      - run:
+          name: Display versions
+          command: |
+            php -v
+            composer --version
       - checkout
-
-      #To be used in case of Browser Tests
-      # - run: mkdir test-reports
-      # - run:
-      #     name: Download Selenium
-      #     command: |
-      #       curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
-      # - run:
-      #     name: Start Selenium
-      #     command: |
-      #       java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
-      #     background: true
-
-      - run: sudo apt install -y libsqlite3-dev
-      - run: composer --version
       - restore_cache:
           keys:
             - composer-v1-{{ checksum "composer.json" }}
             - composer-v1-
-      - run: composer install -n --prefer-dist
+      - run:
+          name: Install project dependencies
+          command: composer install -n --prefer-dist
       - save_cache:
           key: composer-v1-{{ checksum "composer.json" }}
           paths:
             - vendor
-      - run: touch storage/testing.sqlite
-      - run: php artisan migrate --env=testing --database=sqlite_testing --force
-      
-      # run tests!
-      - run: vendor/bin/phpunit
+
+      - run:
+          # command: sudo mysql -u root -p 5433 -c "create user ubuntu with password ‘ubuntu’;”
+          command: sudo mysql -p -u root "CREATE USER 'piru'@'localhost' IDENTIFIED BY 'password';"
+          # command: sudo -u postgres psql -p 5433 -c "alter user ubuntu with superuser;"
+          command: sudo mysql -p -u root "GRANT ALL PRIVILEGES ON circle_test.* TO 'user'@'localhost';"
+
+          # Create a new test database.
+          # command: sudo -u postgres psql -p 5433 -c "create database circle_test;"
+          command: sudo mysql -p -u root "create database circle_test;"
+
+      - run: php artisan migrate --env=testing --seed --force
+
+      - run:
+          name: Run PhpUnit
+          command: ./vendor/bin/phpunit
