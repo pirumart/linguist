@@ -37,14 +37,15 @@ jobs:
             - vendor
 
       - run:
+          # Create a new test database.
+          # command: sudo -u postgres psql -p 5433 -c "create database circle_test;"
+          command: sudo mysql -u ubuntu "create database circle_test;"
+
           # command: sudo mysql -u root -p 5433 -c "create user ubuntu with password ‘ubuntu’;”
           command: sudo mysql -u ubuntu "CREATE USER 'ubuntu'@'localhost' IDENTIFIED BY 'password';"
           # command: sudo -u postgres psql -p 5433 -c "alter user ubuntu with superuser;"
           command: sudo mysql -u ubuntu "GRANT ALL PRIVILEGES ON circle_test.* TO 'ubuntu'@'localhost';"
 
-          # Create a new test database.
-          # command: sudo -u postgres psql -p 5433 -c "create database circle_test;"
-          command: sudo mysql -p -u root "create database circle_test;"
 
       - run: php artisan migrate --env=testing --seed --force
 
