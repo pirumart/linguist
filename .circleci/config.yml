@@ -38,9 +38,9 @@ jobs:
 
       - run:
           # command: sudo mysql -u root -p 5433 -c "create user ubuntu with password ‘ubuntu’;”
-          command: sudo mysql -p -u root "CREATE USER 'ubuntu'@'localhost' IDENTIFIED BY 'password';"
+          command: sudo mysql -u ubuntu "CREATE USER 'ubuntu'@'localhost' IDENTIFIED BY 'password';"
           # command: sudo -u postgres psql -p 5433 -c "alter user ubuntu with superuser;"
-          command: sudo mysql -p -u root "GRANT ALL PRIVILEGES ON circle_test.* TO 'ubuntu'@'localhost';"
+          command: sudo mysql -u ubuntu "GRANT ALL PRIVILEGES ON circle_test.* TO 'ubuntu'@'localhost';"
 
           # Create a new test database.
           # command: sudo -u postgres psql -p 5433 -c "create database circle_test;"
