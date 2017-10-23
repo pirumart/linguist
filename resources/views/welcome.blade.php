@@ -1,6 +1,84 @@
 @extends('layouts.app')
+
+@section('overview')
+    <div class="header__search container">
+        <form>
+            <div class="search">
+                <div class="search__type">
+                    <a href="" style="margin-right: 20px;">Search</a>
+                </div>
+
+                <div class="search__body">
+                    <input type="text" class="search__input" placeholder="Enter the phrase you want to translate">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="header__recommended">
+        <div class="listings-grid">
+            <div class="listings-grid__item">
+                <a href="/">
+                    <div class="listings-grid__main">
+                        <img src="img/level_hatchling.png" alt="">
+                        <div class="listings-grid__price">Hatchling</div>
+                    </div>
+
+                    <div class="listings-grid__body">
+                        <small>Starter Level</small>
+                        <h5>Learn the basics</h5>
+                    </div>
+                </a>
+            </div>
+
+            <div class="listings-grid__item">
+                <a href="/">
+                    <div class="listings-grid__main">
+                        <img src="img/level_growth.png" alt="">
+                        <div class="listings-grid__price">Growth</div>
+                    </div>
+
+                    <div class="listings-grid__body">
+                        <small>Beginner Level</small>
+                        <h5>Learn something new</h5>
+                    </div>
+                </a>
+            </div>
+
+            <div class="listings-grid__item">
+                <a href="/">
+                    <div class="listings-grid__main">
+                        <img src="img/level_professional.png" alt="">
+                        <div class="listings-grid__price">Professional</div>
+                    </div>
+
+                    <div class="listings-grid__body">
+                        <small>Intermediate Level</small>
+                        <h5>Become a Pro</h5>
+                    </div>
+                </a>
+            </div>
+
+            <div class="listings-grid__item">
+                <a href="/">
+                    <div class="listings-grid__main">
+                        <img src="img/level_proficient.png" alt="">
+                        <div class="listings-grid__price">Proficient</div>
+                    </div>
+
+                    <div class="listings-grid__body">
+                        <small>Expert Level</small>
+                        <h5>Become a Guru</h5>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+@endsection
+
 @section('content')
-    
+
     <header class="section__title">
         <h2>What would you like to learn today? </h2>
         <small>select from a variety of categories below</small>

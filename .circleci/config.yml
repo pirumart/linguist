@@ -22,6 +22,7 @@ jobs:
       #     background: true
 
       - run: sudo apt install -y libsqlite3-dev
+      - run: sudo apt install -y libsqlite3-0
       - run: composer --version
       - restore_cache:
           keys:
@@ -34,6 +35,6 @@ jobs:
             - vendor
       - run: touch storage/testing.sqlite
       - run: php artisan migrate --env=testing --database=sqlite_testing --force
-      
+
       # run tests!
       - run: vendor/bin/phpunit

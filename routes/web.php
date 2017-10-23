@@ -15,6 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+//***Other public routes should be added here
 
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+Route::group([
+    'middleware' => 'auth'
+    ], function() {
+        Route::get('/home', 'HomeController@index')->name('home');
+        
+        Route::resource('/dashboard', 'DashboardController');
+
+        //***Place your auth restricted routes here
+    }
+);

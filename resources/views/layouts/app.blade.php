@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" id="csrf_token" content="{{ csrf_token() }}">
-        <title>DataGrip</title>
+        <title>Ugandan Linguist</title>
 
         <link rel="shortcut icon" href="/img/favicon.png">
 
@@ -46,105 +46,11 @@
                     <ul class="top-nav">
                         @if(!Auth::check())
                             <li class="dropdown top-nav__guest">
-                                <a data-toggle="dropdown" href="">Register</a>
-
-                                <form class="dropdown-menu stop-propagate" method="POST" action="{{ route('register') }}">
-                                    {{ csrf_field() }}
-
-                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                        <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" 
-                                                placeholder="Name" required autofocus>
-                                        <i class="form-group__bar"></i>
-                                        @if ($errors->has('name'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('name') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-
-                                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" 
-                                                placeholder="Email Address" required>
-                                        <i class="form-group__bar"></i>
-                                        @if ($errors->has('email'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-
-                                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                        <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
-                                        <i class="form-group__bar"></i>
-                                        @if ($errors->has('password'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" 
-                                            placeholder="Confirm Password" required>
-                                        <i class="form-group__bar"></i>
-                                    </div>
-
-                                    <p><small>By Signing up with Roost, you're agreeing to our <a href="">terms and conditions</a>.</small></p>
-
-                                    <button class="btn btn-primary btn-block m-t-10 m-b-10" type="submit">Register</button>
-                                </form>
+                                <a href="/register"> Register </a>
                             </li>
 
                             <li class="dropdown top-nav__guest">
-                                <a data-toggle="dropdown" href="" data-rmd-action="switch-login">Login</a>
-
-                                <div class="dropdown-menu">
-                                    <div class="tab-content">
-                                        <form class="tab-pane active in fade" id="top-nav-login" method="POST" action="{{ route('login') }}">
-                                            {{ csrf_field() }}
-                                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" 
-                                                        placeholder="Email Address" required autofocus>
-                                                <i class="form-group__bar"></i>
-                                                @if ($errors->has('email'))
-                                                    <span class="help-block">
-                                                        <strong>{{ $errors->first('email') }}</strong>
-                                                    </span>
-                                                @endif
-                                            </div>
-
-                                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                                <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
-                                                <i class="form-group__bar"></i>
-
-                                                @if ($errors->has('password'))
-                                                    <span class="help-block">
-                                                        <strong>{{ $errors->first('password') }}</strong>
-                                                    </span>
-                                                @endif
-                                            </div>
-
-                                            <button class="btn btn-primary btn-block m-t-10 m-b-10" type="submit">Login</button>
-
-                                            <div class="text-center">
-                                                <a href="#top-nav-forgot-password" data-toggle="tab"><small>Forgot email/password?</small></a>
-                                            </div>
-                                        </form>
-
-                                        <form class="tab-pane fade forgot-password" id="top-nav-forgot-password">
-                                            <a href="#top-nav-login" class="top-nav__back" data-toggle="tab"></a>
-
-                                            <p>Enter your email address you registered with so that we can forward you a reset link.</p>
-
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Emaill Address">
-                                                <i class="form-group__bar"></i>
-                                            </div>
-
-                                            <button class="btn btn-warning btn-block">Reset Password</button>
-                                        </form>
-                                    </div>
-                                </div>
+                                <a href="/login"> Login </a>
                             </li>
                         @endif
 
@@ -154,7 +60,17 @@
 
                                 <ul class="dropdown-menu">
                                     <li><a href="">Profile</a></li>
-                                    <li><a href="">Logout</a></li>
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="top-nav__icon">
@@ -186,7 +102,7 @@
                     <a class="logo" href="/">
                         <img src="img/icon.png" alt="">
                         <div class="logo__text">
-                            <span>Data Grip</span>
+                            <span>Ugandan Linguist</span>
                             <span>Easy Learning</span>
                         </div>
                     </a>
@@ -273,80 +189,8 @@
                 </div>
             </div>
 
-            <div class="header__search container">
-                <form>
-                    <div class="search">
-                        <div class="search__type">
-                            <a href="" style="margin-right: 20px;">Search</a>
-                        </div>
+            @yield('overview')
 
-                        <div class="search__body">
-                            <input type="text" class="search__input" placeholder="Enter the phrase you want to translate">
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <div class="header__recommended">
-                <div class="listings-grid">
-                    <div class="listings-grid__item">
-                        <a href="/">
-                            <div class="listings-grid__main">
-                                <img src="img/level_hatchling.png" alt="">
-                                <div class="listings-grid__price">Hatchling</div>
-                            </div>
-
-                            <div class="listings-grid__body">
-                                <small>Starter Level</small>
-                                <h5>Learn the basics</h5>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="listings-grid__item">
-                        <a href="/">
-                            <div class="listings-grid__main">
-                                <img src="img/level_growth.png" alt="">
-                                <div class="listings-grid__price">Growth</div>
-                            </div>
-
-                            <div class="listings-grid__body">
-                                <small>Beginner Level</small>
-                                <h5>Learn something new</h5>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="listings-grid__item">
-                        <a href="/">
-                            <div class="listings-grid__main">
-                                <img src="img/level_professional.png" alt="">
-                                <div class="listings-grid__price">Professional</div>
-                            </div>
-
-                            <div class="listings-grid__body">
-                                <small>Intermediate Level</small>
-                                <h5>Become a Pro</h5>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="listings-grid__item">
-                        <a href="/">
-                            <div class="listings-grid__main">
-                                <img src="img/level_proficient.png" alt="">
-                                <div class="listings-grid__price">Proficient</div>
-                            </div>
-
-                            <div class="listings-grid__body">
-                                <small>Expert Level</small>
-                                <h5>Become a Guru</h5>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
         </header>
 
         <section class="section">
@@ -364,7 +208,7 @@
                         <div class="footer__block">
                             <a class="logo clearfix" href="">
                                 <div class="logo__text">
-                                    <span>Data Grip</span>
+                                    <span>Ugandan Linguist</span>
                                     <span>Easy Learning</span>
                                 </div>
                             </a>
@@ -389,15 +233,15 @@
                             <div class="footer__title">Latest from our blog</div>
 
                             <a href="">
-                                Aenean lacinia bibendum nulla sed
+                                Launch of MVP scheduled for 31st December, 2017
                                 <small>On 2017/10/20 at 6:00 PM</small>
                             </a>
                             <a href="">
-                                Vestibulum id ligula porta felis euismod semper
+                                Call for contributors to this project
                                 <small>On 2017/10/18 at 7:12 PM</small>
                             </a>
                             <a href="">
-                                Etiam porta sem malesuada magna mollis euismod
+                                You can now learn Uganda's most spoken local language for free
                                 <small>On 2017/10/10 at 12:59 PM</small>
                             </a>
                         </div>
@@ -407,7 +251,8 @@
                             <div class="footer__title">Disclaimer</div>
 
                             <div>
-                                Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui. Maecenas sed diam eget risus varius blandit sit amet non magna. Sed posuere consectetur est at lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                                This Project is under development and we apologize for any wrong data we 
+                                may use during the development process.
                             </div>
                         </div>
                     </div>
@@ -421,7 +266,9 @@
                     <a href="">About Us</a>
                     <a href="">Terms & Conditions</a>
                     <a href="">Privacy Policy</a>
-                    <a href="">Contribute</a>
+                    <a href="https://github.com/street-lights/data-collection-tool" target="_blank">
+                        Contribute
+                    </a>
                 </div>
 
                 <div class="footer__to-top" data-rmd-action="scroll-to" data-rmd-target="html">
