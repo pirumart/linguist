@@ -1,8 +1,5 @@
 # data-collection-tool
-Starter project that will aid in the data collection process for other repos
-
-# Goal
-To build an easy to use tool that will aid information gathering for future projects. 
+Open source project to teach Ugandan local languages.
 
 # Getting Started 
 
