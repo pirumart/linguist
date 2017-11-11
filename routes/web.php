@@ -12,18 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/home', function () {
+    return view('home');
 });
 
 //***Other public routes should be added here
 
 Auth::routes();
-Route::group([
+Route::group(
+    [
     'middleware' => 'auth'
-    ], function() {
-        Route::get('/home', 'HomeController@index')->name('home');
-        
+    ],
+    function () {
         Route::resource('/dashboard', 'DashboardController');
+        Route::resource('/topics', 'TopicsController');
 
         //***Place your auth restricted routes here
     }
