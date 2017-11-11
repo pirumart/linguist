@@ -49,7 +49,7 @@
                                     <a href="" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a>
 
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a href="#add-to-group" data-toggle="modal">Add to group</a></li>
+                                        <li><a href="#add-to-group" data-toggle="modal">Add sub-topic</a></li>
                                         <li><a href="">Edit</a></li>
                                         <li><a href="" data-demo-action="delete-listing">Delete</a></li>
                                     </ul>
