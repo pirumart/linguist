@@ -13,3 +13,13 @@ function dgc(string $alias)
 {
     return getClass($alias);
 }
+
+function dga(string $alias)
+{
+    return getClass($alias)::all();
+}
+
+function dgf(string $alias)
+{
+    return getClass($alias)::first();
+}

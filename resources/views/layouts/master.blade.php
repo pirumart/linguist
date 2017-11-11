@@ -22,7 +22,7 @@
                 <i class="zmdi zmdi-menu"></i>
             </a>
 
-            <a href="index.html" class="header-alt__logo hidden-xs">Ugandan Linguist</a>
+            <a href="/home" class="header-alt__logo hidden-xs">Ugandan Linguist</a>
 
             <ul class="header-alt__menu">
                 <li>

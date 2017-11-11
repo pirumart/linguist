@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Topic;
 use Illuminate\Http\Request;
 
 class TopicsController extends Controller
@@ -13,7 +14,9 @@ class TopicsController extends Controller
      */
     public function index()
     {
-        //
+        $topics_count = Topic::count();
+        $topics = Topic::all()->load('subTopics');
+        return view('topics.index', compact('topics_count', 'topics'));
     }
 
     /**
