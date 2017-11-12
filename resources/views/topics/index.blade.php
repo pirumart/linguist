@@ -56,84 +56,16 @@
                                 </div>
                             </div>
                         </div>
+
+                        @include('topics.partials._view_topic', [
+                                'topic' => $topic
+                            ])
+
+                        @include('topics.partials._add_sub-topic', [
+                                'topic' => $topic
+                            ])
                     @endforeach
 
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- Modal --}}
-
-    <!-- View Topic -->
-    <div class="modal fade" id="view-contact">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                    <div class="view-contact__img">
-                        <img src="img/demo/people/2.jpg" class="img-circle" width="150" height="150" alt="">
-                    </div>
-
-                    <div class="m-t-25">
-                        <h4>Mallinda Hollaway</h4>
-                        <small>421 Walnut St. Hartford, CT 06106, United States</small>
-                    </div>
-
-                    <div class="m-t-25">
-                        <small>Email Address</small>
-                        <div class="text-strong m-t-5">mallinda-h@gmail.com</div>
-                    </div>
-
-                    <div class="m-t-25">
-                        <small>Mobile Phone</small>
-                        <div class="text-strong m-t-5">(203) 991-4171</div>
-                    </div>
-
-                    <div class="m-t-25">
-                        <small>Home Phone</small>
-                        <div class="text-strong m-t-5">(902) 093-3923</div>
-                    </div>
-                </div>
-
-                <div class="modal-footer text-center modal-footer--bordered">
-                    <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Add to group modal -->
-    <div class="modal fade" id="add-to-group" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Add to group</h4>
-                </div>
-
-                <div class="contact-highlight media">
-                    <div class="pull-left">
-                        <img src="img/demo/people/1.jpg" class="img-circle" width="50" height="50" alt="">
-                    </div>
-                    <div class="media-body">
-                        <strong>Mallinda Hollaway</strong>
-
-                        <div class="list-group__attrs m-t-5">
-                            <div>mallinda-h@hmail.com</div>
-                            <div>(203) 991-4171</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal-body">
-                    <div class="form-group m-0">
-                        <input type="text" class="form-control" placeholder="Group name...">
-                        <i class="form-group__bar"></i>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-link" data-dismiss="modal">Dismiss</button>
-                    <button type="button" class="btn btn-link">Add</button>
                 </div>
             </div>
         </div>

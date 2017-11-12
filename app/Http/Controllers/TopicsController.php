@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Topic;
+use App\Models\SubTopic;
 use Illuminate\Http\Request;
 
 class TopicsController extends Controller
@@ -38,6 +39,18 @@ class TopicsController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function addSubTopic(Request $request, Topic $topic)
+    {
+        $new_subtopic = new SubTopic($request->all());
+        $new_subtopic->topic_id = $topic->id;
+
+        if (!$new_subtopic->save()) {
+            return redirect()->back()->withInput($request->all())
+                ->withErrors($errors);
+        }
+        return redirect()->back();
     }
 
     /**
