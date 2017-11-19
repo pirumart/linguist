@@ -26,6 +26,10 @@
                         {{ $topics_count.' Topics' }}
                     </div>
 
+                    <topics
+                        :topics="{{ json_encode($topics)}}"
+                    ></topics>
+
                     @foreach($topics as $topic)
                         <div class="list-group__wrap">
                             <a class="list-group-item media" href="#view-contact" data-toggle="modal">
