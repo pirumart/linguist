@@ -16,6 +16,7 @@
 
         <link rel="stylesheet" href="css/app_1.css">
         <link rel="stylesheet" href="css/app_2.css">
+        {{-- <link rel="stylesheet" href="{{ mix('/css/app.css') }}"> --}}
     <body>
         <header id="header-alt">
             <a href="" class="header-alt__trigger hidden-lg" data-rmd-action="block-open" data-rmd-target="#main__sidebar">
@@ -81,7 +82,9 @@
 
             <section id="main__content">
 
-                @yield('content')
+                <div id="app">
+                    @yield('content')
+                </div>
 
             </section>
 
@@ -106,6 +109,7 @@
         <script src="vendors/bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
 
         <!-- Site functions and actions -->
+        <script src="{{ mix('/js/app.js') }}"></script>
         <script src="js/app.min.js"></script>
         <script src="js/demo/demo.js"></script>
     </body>
