@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="action-header-alt">
+    {{-- <div class="action-header-alt">
         <div class="action-header__item action-header__item--search">
             <form>
                 <input type="text" placeholder="Search Topics...">
@@ -12,7 +12,7 @@
         <div class="action-header__item action-header__add">
             <a href="/topics/create" class="btn btn-danger btn-sm">New Topic</a>
         </div>
-    </div>
+    </div> --}}
 
     <div class="main__container">
         <header class="main__title">
@@ -26,9 +26,28 @@
                         {{ $topics_count.' Topics' }}
                     </div>
 
-                    <topics
-                        :topics="{{ json_encode($topics)}}"
-                    ></topics>
+                    @foreach($topics as $topic)
+                        <div class="list-group__wrap">
+                            <a class="list-group-item media" href="/topics/{{ $topic->id }}" data-toggle="modal">
+                                <div class="pull-left">
+                                    <div class="avatar-char mdc-bg-amber-400">T</div>
+                                </div>
+                                <div class="media-body list-group__text">
+                                    <h4>{{ $topic->name }}</h4>
+                                    <i>{{ $topic->description }}</i>
+                                    <br><br>
+                                    <div class="col-sm-12">
+                                        <span><h5>Sub-topics: </h5></span>
+                                        @foreach($topic->subTopics as $subTopic)
+                                            <span class="list-group__attrs">
+                                                <div>{{ ucfirst($subTopic->name) }}</div>
+                                            </span>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
 
                 </div>
             </div>

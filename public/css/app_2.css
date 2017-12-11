@@ -2303,11 +2303,11 @@ a[href]:after {
 }
 @media (min-width:768px) {
     .main__container {
-    padding: 100px 40px;
+    padding: 50px 40px;
 }
 }@media (max-width:767px) {
     .main__container {
-    padding: 100px 15px 50px;
+    padding: 40px 15px 50px;
 }
 }.main__container:not(.main__container-sm) {
     max-width: 1200px;

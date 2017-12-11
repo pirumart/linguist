@@ -16,7 +16,7 @@
 
         <link rel="stylesheet" href="css/app_1.css">
         <link rel="stylesheet" href="css/app_2.css">
-        {{-- <link rel="stylesheet" href="{{ mix('/css/app.css') }}"> --}}
+        <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
     <body>
         <header id="header-alt">
             <a href="" class="header-alt__trigger hidden-lg" data-rmd-action="block-open" data-rmd-target="#main__sidebar">

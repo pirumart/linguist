@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="topic in topics" class="list-group__wrap">
-            <a class="list-group-item media" data-toggle="modal">
+            <a class="list-group-item media" href="/topics/topic.id" data-toggle="modal">
                 <div class="pull-left">
                     <div class="avatar-char mdc-bg-amber-400">T</div>
                 </div>
@@ -17,14 +17,6 @@
                     </div>
                 </div>
             </a>
-            <div class="actions list-group__actions">
-                <b-button-group>
-                    <b-dropdown right text=":">
-                        <b-dropdown-item><a href="#add-to-group" data-toggle="modal">Add sub-topic</a></b-dropdown-item>
-                        <b-dropdown-item><a href="">Edit</a></b-dropdown-item>
-                    </b-dropdown>
-                </b-button-group>
-            </div>
         </div>
     </div>
 </template>
