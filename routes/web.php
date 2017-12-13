@@ -29,7 +29,10 @@ Route::group(
     function () {
         Route::resource('/dashboard', 'DashboardController');
         Route::resource('/topics', 'TopicsController');
+        Route::post('/topics/{topic}/store', 'TopicsController@addSubTopic');
 
+        Route::get('/topics/{topic}/sub-topic/create', 'TopicsController@newSubTopic');
+        Route::post('/topics/{topic}/sub-topic/store', 'TopicsController@addSubTopic');
         //***Place your auth restricted routes here
     }
 );

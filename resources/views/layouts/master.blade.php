@@ -9,13 +9,14 @@
 
         <link rel="shortcut icon" href="/img/favicon.png">
 
-        <link rel="stylesheet" href="vendors/bower_components/animate.css/animate.min.css">
-        <link rel="stylesheet" href="vendors/bower_components/sweetalert2/dist/sweetalert2.min.css">
-        <link rel="stylesheet" href="vendors/bower_components/select2/dist/css/select2.min.css">
-        <link href="vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('/vendors/bower_components/animate.css/animate.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/vendors/bower_components/sweetalert2/dist/sweetalert2.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/vendors/bower_components/select2/dist/css/select2.min.css') }}">
+        <link href="{{ asset('/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css') }}" rel="stylesheet">
 
-        <link rel="stylesheet" href="css/app_1.css">
-        <link rel="stylesheet" href="css/app_2.css">
+        <link rel="stylesheet" href="{{ asset('css/app_1.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app_2.css') }}">
+        <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
     <body>
         <header id="header-alt">
             <a href="" class="header-alt__trigger hidden-lg" data-rmd-action="block-open" data-rmd-target="#main__sidebar">
@@ -35,7 +36,7 @@
                 </li>
                 <li class="header-alt__profile dropdown">
                     <a href="" data-toggle="dropdown">
-                        <img src="img/demo/people/2.jpg" alt="">
+                        <img src="{{ asset('img/demo/people/2.jpg') }}" alt="">
                     </a>
 
                     <ul class="dropdown-menu pull-right">
@@ -81,7 +82,9 @@
 
             <section id="main__content">
 
-                @yield('content')
+                <div id="app">
+                    @yield('content')
+                </div>
 
             </section>
 
@@ -97,16 +100,17 @@
         </main>
 
         <!-- jQuery -->
-        <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="{{ asset('/vendors/bower_components/jquery/dist/jquery.min.js') }}"></script>
 
         <!-- Bootstrap -->
-        <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
-        <script src="vendors/bower_components/select2/dist/js/select2.full.min.js"></script>
-        <script src="vendors/bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+        <script src="{{ asset('/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('/vendors/bower_components/Waves/dist/waves.min.js') }}"></script>
+        <script src="{{ asset('/vendors/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
+        <script src="{{ asset('/vendors/bower_components/sweetalert2/dist/sweetalert2.min.js') }}"></script>
 
         <!-- Site functions and actions -->
-        <script src="js/app.min.js"></script>
-        <script src="js/demo/demo.js"></script>
+        <script src="{{ mix('/js/app.js') }}"></script>
+        <script src="{{ asset('js/app.min.js') }}"></script>
+        <script src="{{ asset('js/demo/demo.js') }}"></script>
     </body>
 </html>

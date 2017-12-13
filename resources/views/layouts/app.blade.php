@@ -124,7 +124,8 @@
                         </li>
                         @endif
 
-                        <li class="navigation__dropdown">
+                        {{-- used in case of drop downs --}}
+                        {{-- <li class="navigation__dropdown">
                             <a href="" class="prevent-default">Basics</a>
 
                             <ul class="navigation__drop-menu">
@@ -132,58 +133,30 @@
                                 <li><a href="/">Food</a></li>
                                 <li><a href="/">House</a></li>
                             </ul>
+                        </li> --}}
+
+                        <li>
+                            <a href="">Basics</a>
                         </li>
 
-
-                        <li class="navigation__dropdown">
+                        <li>
                             <a href="">Numbers</a>
-
-                            <ul class="navigation__drop-menu">
-                                <li><a href="/">Starter</a></li>
-                                <li><a href="/">Money</a></li>
-                                <li><a href="/">Test Drive</a></li>
-                            </ul>
                         </li>
 
-                        <li class="navigation__dropdown">
-                            <a href="agents.html">Animals</a>
-
-                            <ul class="navigation__drop-menu">
-                                <li><a href="/">Domestic Animals</a></li>
-                                <li><a href="/">Wild Animals</a></li>
-                            </ul>
+                        <li>
+                            <a href="">Animals</a>
                         </li>
 
-                        <li class="navigation__dropdown">
+                        <li>
                             <a href="">People</a>
-
-                            <ul class="navigation__drop-menu">
-                                <li><a href="/">Starter</a></li>
-                                <li><a href="/">Family</a></li>
-                                <li><a href="/">Community</a></li>
-                            </ul>
                         </li>
 
-                        <li class="navigation__dropdown">
-                            <a href="agents.html">Date & Time</a>
-
-                            <ul class="navigation__drop-menu">
-                                <li><a href="/">Days</a></li>
-                                <li><a href="/">Time</a></li>
-                                <li><a href="/">Test Drive</a></li>
-                            </ul>
+                        <li>
+                            <a href="">Date & Time</a>
                         </li>
 
-                        <li class="navigation__dropdown">
-                            <a href="" class="prevent-default">Miscellaneous</a>
-
-                            <ul class="navigation__drop-menu navigation__drop-menu--right">
-                                <li><a href="/">Sports</a></li>
-                                <li><a href="/">Travel</a></li>
-                                <li><a href="/">Machines</a></li>
-                                <li><a href="/">Materials</a></li>
-                                <li><a href="/">Electronics</a></li>
-                            </ul>
+                        <li>
+                            <a href="">Miscellaneous</a>
                         </li>
                     </ul>
                 </div>
@@ -195,9 +168,9 @@
 
         <section class="section">
             <div class="container">
-        		
+
         		@yield('content')
-                
+
             </div>
         </section>
 
@@ -251,7 +224,7 @@
                             <div class="footer__title">Disclaimer</div>
 
                             <div>
-                                This Project is under development and we apologize for any wrong data we 
+                                This Project is under development and we apologize for any wrong data we
                                 may use during the development process.
                             </div>
                         </div>
