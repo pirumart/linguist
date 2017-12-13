@@ -25,6 +25,18 @@ class TopicsController extends Controller
         //
     }
 
+    /**
+     * return view for adding a new sub topic
+     */
+    public function newSubTopic(Topic $topic)
+    {
+        return view('topics.sub-topic.new', compact('topic'));
+    }
+
+    /**
+     * saves a new sub topic to database
+     * @param $request, $topic (parent topic)
+     */
     public function addSubTopic(Request $request, Topic $topic)
     {
         $new_subtopic = new SubTopic($request->all());
@@ -34,7 +46,7 @@ class TopicsController extends Controller
             return redirect()->back()->withInput($request->all())
                 ->withErrors($errors);
         }
-        return redirect()->back();
+        return redirect("/topics/$topic->id")->with('status', "$request->name has been added to $topic->name");
     }
 
     public function show($id)
