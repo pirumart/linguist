@@ -41,14 +41,23 @@
                                     </div>
                                 </div>
                             @endforeach
-
                         @endif
                     </div>
-
-
                 </div>
             </div>
         </div>
+
+        <div class="action-header__item action-header__add">
+            <form method="POST" action="/topics/{{ $topic->id }}">
+                {{ csrf_field() }}
+                <input type="hidden" name="_method" value="DELETE">
+
+                <button type="submit" class="btn btn-danger btn-md">
+                    <i class="zmdi zmdi-delete"></i>  Delete Topic
+                </button>
+            </form>
+        </div>
+
     </div>
 
 @endsection

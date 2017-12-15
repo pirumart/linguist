@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Topic;
 use App\Models\SubTopic;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreTopic;
 use App\Http\Requests\StoreSubTopic;
 
@@ -67,13 +66,20 @@ class TopicsController extends Controller
         //
     }
 
-    public function update(Request $request, $id)
+    public function update(StoreTopic $request, Topic $id)
     {
-        //
+        //todo give tutors the power to edit topics
     }
 
     public function destroy($id)
     {
-        //
+        $topic = Topic::findOrFail($id);
+
+        if ($topic->subTopics->count() > 0) {
+            return redirect("/topics/$id")->with('status', "You cannot delete $topic->name because it has sub topics.");
+        }
+
+        $topic->delete();
+        return redirect('/topics')->with('status', "$topic->name has been successfully deleted.");
     }
 }

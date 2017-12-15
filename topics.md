@@ -4,6 +4,7 @@
     - Colors
     - Food
     - House
+    - clothes
 
 2. Numbers
     - Counting
