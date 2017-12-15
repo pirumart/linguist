@@ -17,12 +17,15 @@ class TopicsController extends Controller
 
     public function create()
     {
-        //
+        return view('topics.new');
     }
 
     public function store(Request $request)
     {
-        //
+        $new_topic =  new Topic($request->all());
+        if (!$new_topic->save()) {
+            //
+        }
     }
 
     /**
