@@ -13,7 +13,10 @@
                     <div class="list-group__wrap">
                         <a class="list-group-item media" href="/topics" data-toggle="modal">
                             <div class="media-body list-group__text">
-                                <strong><h4>TOPICS</h4></strong>
+                                <strong>
+                                    <h3 class="text-info">{{ $no_of_topics }}</h3>
+                                    <h4> TOPICS</h4>
+                                </strong>
                             </div>
                         </a>
                     </div>

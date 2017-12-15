@@ -2,21 +2,18 @@
 
 @section('content')
 
-    {{-- <div class="action-header-alt">
-        <div class="action-header__item action-header__item--search">
-            <form>
-                <input type="text" placeholder="Search Topics...">
-            </form>
-        </div>
-
-        <div class="action-header__item action-header__add">
-            <a href="/topics/create" class="btn btn-danger btn-sm">New Topic</a>
-        </div>
-    </div> --}}
-
     <div class="main__container">
+
+        @include('partials.status')
+
         <header class="main__title">
             <h2>Topics</h2>
+
+            <div class="row">
+                <div class="action-header__item action-header__add">
+                    <a href="/topics/create" class="btn btn-success btn-md">+ Add New Topic</a>
+                </div>
+            </div>
         </header>
 
         <div class="row">

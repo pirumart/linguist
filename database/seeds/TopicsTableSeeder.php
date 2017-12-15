@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Topic;
+use App\Models\SubTopic;
 use Illuminate\Database\Seeder;
 
 class TopicsTableSeeder extends Seeder
@@ -39,6 +40,15 @@ class TopicsTableSeeder extends Seeder
             Topic::create([
                 'name'          => $value['name'],
                 'description'   => $value['description']
+            ]);
+        }
+
+        //seed first topic with sub topics
+        $first_topic = Topic::first();
+        foreach (['Colors', 'Food', 'House'] as $sub_topic) {
+            SubTopic::create([
+                'topic_id' => $first_topic->id,
+                'name'     => $sub_topic
             ]);
         }
     }

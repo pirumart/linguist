@@ -2,11 +2,9 @@
 @section('content')
 
     <div class="main__container">
-        @if(session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
-            </div>
-        @endif
+
+        @include('partials.status')
+
         <header class="main__title">
             <div class="row">
                 <h2>{{ $topic->name }}</h2>
@@ -43,14 +41,23 @@
                                     </div>
                                 </div>
                             @endforeach
-
                         @endif
                     </div>
-
-
                 </div>
             </div>
         </div>
+
+        <div class="action-header__item action-header__add">
+            <form method="POST" action="/topics/{{ $topic->id }}">
+                {{ csrf_field() }}
+                <input type="hidden" name="_method" value="DELETE">
+
+                <button type="submit" class="btn btn-danger btn-md">
+                    <i class="zmdi zmdi-delete"></i>  Delete Topic
+                </button>
+            </form>
+        </div>
+
     </div>
 
 @endsection
