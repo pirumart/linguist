@@ -2,11 +2,9 @@
 @section('content')
 
     <div class="main__container">
-        @if(session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
-            </div>
-        @endif
+
+        @include('partials.status')
+
         <header class="main__title">
             <div class="row">
                 <h2>{{ $topic->name }}</h2>

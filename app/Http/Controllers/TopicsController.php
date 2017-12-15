@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Topic;
 use App\Models\SubTopic;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreTopic;
+use App\Http\Requests\StoreSubTopic;
 
 class TopicsController extends Controller
 {
@@ -20,12 +22,14 @@ class TopicsController extends Controller
         return view('topics.new');
     }
 
-    public function store(Request $request)
+    public function store(StoreTopic $request)
     {
         $new_topic =  new Topic($request->all());
         if (!$new_topic->save()) {
-            //
+            return redirect()->back()->withInput($request->all())
+                ->withErrors($errors);
         }
+        return redirect('/topics')->with('status', "$request->name has been saved successfully.");
     }
 
     /**
@@ -40,7 +44,7 @@ class TopicsController extends Controller
      * saves a new sub topic to database
      * @param $request, $topic (parent topic)
      */
-    public function addSubTopic(Request $request, Topic $topic)
+    public function addSubTopic(StoreSubTopic $request, Topic $topic)
     {
         $new_subtopic = new SubTopic($request->all());
         $new_subtopic->topic_id = $topic->id;

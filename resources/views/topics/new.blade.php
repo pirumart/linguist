@@ -8,19 +8,27 @@
             </div>
         </header>
 
+        @include('partials.errors')
+
         <div class="row">
             <div class="col-md-12">
                 <div class="list-group list-group--block contact-lists">
-                    <form method="POST" action={{ "/topics/store" }}>
+                    <form method="POST" action={{ "/topics" }}>
                         {{ csrf_field() }}
                         <div class="modal-body">
                             <div class="form-group m-0">
-                                <input type="text" name="name" class="form-control" placeholder="New Sub Topic Name...">
+                                <input type="text" name="name" class="form-control" placeholder="New Topic Name..." required>
+                                <i class="form-group__bar"></i>
+                            </div>
+                            <div class="form-group m-0">
+                                <textarea rows="5" name="description" class="form-control" placeholder="Describe this topic so people can understand better..." required>
+
+                                </textarea>
                                 <i class="form-group__bar"></i>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-link">Add</button>
+                            <button type="submit" class="btn btn-link">Save</button>
                         </div>
                     </form>
                 </div>

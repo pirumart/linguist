@@ -11,6 +11,14 @@ class Topic extends Model
         'description'
     ];
 
+    public function rules()
+    {
+        return [
+            'name'          => 'required|string|min:3',
+            'description'   => 'required|string|min:4'
+        ];
+    }
+
     public function subTopics()
     {
         return $this->hasMany(SubTopic::class);

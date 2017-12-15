@@ -8,6 +8,8 @@
             </div>
         </header>
 
+        @include('partials.errors')
+
         <div class="row">
             <div class="col-md-12">
                 <div class="list-group list-group--block contact-lists">
@@ -15,7 +17,7 @@
                         {{ csrf_field() }}
                         <div class="modal-body">
                             <div class="form-group m-0">
-                                <input type="text" name="name" class="form-control" placeholder="New Sub Topic Name...">
+                                <input type="text" name="name" class="form-control" placeholder="New Sub Topic Name..." required>
                                 <i class="form-group__bar"></i>
                             </div>
                         </div>

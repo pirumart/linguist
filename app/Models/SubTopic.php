@@ -11,6 +11,13 @@ class SubTopic extends Model
         'name',
     ];
 
+    public function rules()
+    {
+        return [
+            'name' => 'required|string|min:3'
+        ];
+    }
+
     public function topic()
     {
         return $this->belongsTo(Topic::class);

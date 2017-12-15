@@ -3,6 +3,9 @@
 @section('content')
 
     <div class="main__container">
+
+        @include('partials.status')
+
         <header class="main__title">
             <h2>Topics</h2>
 
