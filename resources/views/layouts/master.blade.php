@@ -77,7 +77,7 @@
                     <li><a href="/dashboard"><i class="zmdi zmdi-chart"></i> Dashboard</a></li>
                     <li><a href="/topics"><i class="zmdi zmdi-view-list"></i> Topics</a></li>
                     <li><a href=""><i class="zmdi zmdi-assignment "></i> Lessons</a></li>
-                    <li><a href="/settings"><i class="zmdi zmdi-settings "></i> Settings</a></li>
+                    <li><a href="/profile"><i class="zmdi zmdi-settings "></i> Profile</a></li>
                 </ul>
             </aside>
 

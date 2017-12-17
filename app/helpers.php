@@ -6,6 +6,7 @@ function getClass(string $alias)
         'u'     => App\Models\User::class,
         't'     => App\Models\Topic::class,
         'st'    => App\Models\SubTopic::class,
+        'p'     => App\Models\Profile::class,
     ][$alias];
 }
 
