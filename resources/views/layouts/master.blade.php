@@ -36,12 +36,12 @@
                 </li>
                 <li class="header-alt__profile dropdown">
                     <a href="" data-toggle="dropdown">
-                        <img src="{{ asset('img/demo/people/2.jpg') }}" alt="">
+                        <img src="{{ asset('img/people/user_empty.png') }}" alt="">
                     </a>
 
                     <ul class="dropdown-menu pull-right">
                         <li><a href="">Profile</a></li>
-                        <li><a href="">Settings</a></li>
+                        <li><a href="/settings">Settings</a></li>
                         <li>
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
@@ -77,6 +77,7 @@
                     <li><a href="/dashboard"><i class="zmdi zmdi-chart"></i> Dashboard</a></li>
                     <li><a href="/topics"><i class="zmdi zmdi-view-list"></i> Topics</a></li>
                     <li><a href=""><i class="zmdi zmdi-assignment "></i> Lessons</a></li>
+                    <li><a href="/settings"><i class="zmdi zmdi-settings "></i> Settings</a></li>
                 </ul>
             </aside>
 

@@ -34,6 +34,8 @@ Route::group(
         Route::get('/topics/{topic}/sub-topic/create', 'TopicsController@newSubTopic');
         Route::post('/topics/{topic}/sub-topic/store', 'TopicsController@addSubTopic');
 
+        Route::resource('/settings', 'SettingsController');
+
         //***Place your auth restricted routes here
     }
 );
