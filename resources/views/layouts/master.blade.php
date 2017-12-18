@@ -40,8 +40,7 @@
                     </a>
 
                     <ul class="dropdown-menu pull-right">
-                        <li><a href="">Profile</a></li>
-                        <li><a href="/settings">Settings</a></li>
+                        <li><a href="/profile">Profile</a></li>
                         <li>
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
