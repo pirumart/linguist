@@ -34,6 +34,9 @@ Route::group(
         Route::get('/topics/{topic}/sub-topic/create', 'TopicsController@newSubTopic');
         Route::post('/topics/{topic}/sub-topic/store', 'TopicsController@addSubTopic');
 
+        Route::get('/profile/{profile}', 'ProfileController@index');
+        Route::resource('/profile', 'ProfileController', [ 'only' => ['edit', 'update']]);
+
         //***Place your auth restricted routes here
     }
 );
