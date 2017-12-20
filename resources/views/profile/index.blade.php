@@ -66,8 +66,12 @@
                                     <h4>Contact Information</h4>
 
                                     <ul class="rmd-contact-list">
-                                        <li><i class="zmdi zmdi-facebook"></i>{{ isset($profile->facebook) ? $profile->facebook : '' }}</li>
-                                        <li><i class="zmdi zmdi-twitter"></i>{{ isset($profile->twitter) ? '@'.$profile->twitter : '' }}</li>
+                                        <li><i class="zmdi zmdi-facebook"></i>
+                                            <a href="https://facebook.com/{{ isset($profile->facebook) ? $profile->facebook : '' }}" target="_blank">{{ isset($profile->facebook) ? $profile->facebook : '' }}</a>
+                                        </li>
+                                        <li><i class="zmdi zmdi-twitter"></i>
+                                            <a href="https://twitter.com/{{ isset($profile->twitter) ? '@'.$profile->twitter : '' }}" target="_blank">{{ isset($profile->twitter) ? '@'.$profile->twitter : '' }}</a>
+                                            </li>
                                         <li><i class="zmdi zmdi-pin"></i>{{ isset($profile->location) ? $profile->location : '' }}</li>
                                     </ul>
                                 </div>
