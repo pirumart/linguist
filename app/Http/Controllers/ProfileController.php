@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -13,14 +13,10 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Profile $profile)
     {
-        if ($request->id === null) {
-            $user = Auth::user()->load('profile');
-        } else {
-            $user = User::find($request->id)->load('profile');
-        }
-        return view('profile.index', compact('user'));
+        $profile = $profile->load('user');
+        return view('profile.index', compact('profile'));
     }
 
     /**
@@ -44,6 +40,17 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $profile = User::find($id)->profile;
+        foreach (['languages', 'about', 'facebook', 'twitter', 'location'] as $field) {
+            if ($field != null) {
+                $profile->$field     = $request->$field;
+            }
+        }
+
+        if (!$profile->save()) {
+            return redirect()->back()->withInput($request->all())
+                ->withErrors($errors);
+        }
+        return redirect("/profile/$id")->with('status', "Your profile has been successfully updated.");
     }
 }
