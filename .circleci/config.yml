@@ -5,7 +5,7 @@ jobs:
       - image: circleci/php:7.1-cli
         environment:
           APP_ENV: testing
-          APP_KEY: base64:PWPw2AEktDUTwZOjJk2TkKKvP9pvmEmVzMkWP0EGauY=
+          APP_KEY: base64:D+c9WV2OBzUJMn5tftYqa+LwK1Pw9/h78jAq4ygBzPg=
           DB_DATABASE: circle_test
           DB_USERNAME: root
           # CACHE_DRIVER: redis
@@ -40,7 +40,7 @@ jobs:
           key: composer-v1-{{ checksum "composer.json" }}
           paths:
             - vendor
-      - run: cp .env.testing .env
+      - run: cp .env.circleci .env
 
       - run: php artisan migrate:refresh --seed --force --env=testing -vvv
 
