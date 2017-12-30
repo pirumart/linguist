@@ -18,7 +18,6 @@ Vue.config.productionTip = false;
  */
 
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('Topics', require('./components/Topics.vue'));
 
 const app = new Vue({

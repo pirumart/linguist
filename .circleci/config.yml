@@ -40,7 +40,7 @@ jobs:
           key: composer-v1-{{ checksum "composer.json" }}
           paths:
             - vendor
-      - run: cp .env.testing .env
+      - run: cp .env.circleci .env
 
       - run: php artisan migrate:refresh --seed --force --env=testing -vvv
 
