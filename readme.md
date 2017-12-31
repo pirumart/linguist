@@ -4,7 +4,7 @@ Open source project to teach Ugandan local languages.
 # Getting Started 
 
 * supported programming languages
-	- [Laravel Framework](https://laravel.com/docs/5.4)
+	- [Laravel Framework](https://laravel.com/docs/5.5)
 	- [Vue](https://vuejs.org)
 
 * Setup 
