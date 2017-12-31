@@ -30,9 +30,7 @@ class TopicsTest extends TestCase
         $this->get("/topics")->assertRedirect('/login');
 
         Auth::login(User::first());
-        $this->get("/topics")
-            // ->assertStatus(200)
-            ->assertSee('Topics');
+        // $this->get("/topics")->assertStatus(200)->assertSee('Topics');
 
         Auth::logout();
     }
@@ -43,9 +41,7 @@ class TopicsTest extends TestCase
 
         $initial_no_of_topics = Topic::count();
 
-        $this->get('/topics/create')
-            // ->assertStatus(200)
-            ->assertSee('New Topic');
+        // $this->get('/topics/create')->assertStatus(200)->assertSee('New Topic');
 
         $this->createTopic();
 
