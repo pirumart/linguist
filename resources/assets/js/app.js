@@ -9,12 +9,6 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-// import Vue from 'vue'
-// import BootstrapVue from 'bootstrap-vue'
-
-// import 'bootstrap/dist/css/bootstrap.css'
-// import 'bootstrap-vue/dist/bootstrap-vue.css'
-
 Vue.config.productionTip = false;
 
 /**
@@ -23,8 +17,6 @@ Vue.config.productionTip = false;
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-
-// Vue.use(BootstrapVue);
 
 Vue.component('Topics', require('./components/Topics.vue'));
 
