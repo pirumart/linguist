@@ -12,9 +12,9 @@ yarn-error.log
 .env
 
 # compiled assets
-public/js/app.js
-public/js/app.css
-public/mix-manifest.json
+/public/js/app.js
+/public/css/app.css
+/public/mix-manifest.json
 
 /resources/assets/css/app.css
 /resources/assets/js/app.js
