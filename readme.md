@@ -1,6 +1,9 @@
 # data-collection-tool
 Open source project to teach Ugandan local languages.
 
+[![CircleCI](https://circleci.com/gh/street-lights/data-collection-tool.svg?style=svg)](https://circleci.com/gh/street-lights/data-collection-tool)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.0.0-8892BF.svg?style=flat-square)](https://php.net/)
+
 # Getting Started 
 
 * supported programming languages
