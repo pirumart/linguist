@@ -14,7 +14,7 @@ Open source project to teach Ugandan local languages.
 	- Clone this repo to your local machine
 	- Create a new file in the root directroy and name it `.env` then copy the contents of `.env.example` to the newly created file. 
 	- Run the command `php artisan key:generate` to get a new unique key
-	- Create a new database and name it `datagrip`. Once this is done and u've made the necessary changes to your `.env` file (if at all you need to add the database password and user) then you can run `php artisan migrate --seed` to scafold the necessary tables and create sample data to work with. 
+	- Create a new database and name it `linguist` or any other database name of your preference. Once this is done and u've made the necessary changes to your `.env` file (if at all you need to add the database password and user) then you can run `php artisan migrate --seed` to scafold the necessary tables and create sample data to work with. 
 
 
 ## Contributing
