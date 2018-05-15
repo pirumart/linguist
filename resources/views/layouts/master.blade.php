@@ -89,7 +89,7 @@
             </section>
 
             <footer id="footer-alt">
-                Copyright © 2017 Ugandan Linguist
+                Copyright © 2018 Ugandan Linguist
 
                 <ul class="footer-alt__menu">
                     <li><a href="/home">Home</a></li>

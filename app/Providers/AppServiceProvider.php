@@ -20,6 +20,9 @@ class AppServiceProvider extends ServiceProvider
 
         //observers
         User::observe(UserObserver::class);
+
+        //force pagination to use bootstrap 3
+        // Paginator::useBootstrapThree();
     }
 
     /**

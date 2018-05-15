@@ -91,7 +91,7 @@
                             <a href=""><i class="zmdi zmdi-google"></i></a>
                         </li>
 
-                        <li class="pull-right hidden-xs"><span><i class="zmdi zmdi-email"></i>hello@streetlights.org</span></li>
+                        <li class="pull-right hidden-xs"><span><i class="zmdi zmdi-email"></i>piruville@gmail.com</span></li>
                         <li class="pull-right hidden-xs"><span><i class="zmdi zmdi-phone"></i>256-xxx-xxx-xxxx</span></li>
                     </ul>
                 </div>
@@ -192,7 +192,7 @@
                             </address>
 
                             <div class="f-20">256-xxxxxxxx</div>
-                            <div class="f-14 m-t-5">hello@streetlights.org</div>
+                            <div class="f-14 m-t-5">piruville@gmail.com</div>
 
                             <div class="f-20 m-t-20">
                                 <a href="" class="m-r-10"><i class="zmdi zmdi-google"></i></a>
@@ -234,12 +234,12 @@
 
             <div class="footer__bottom">
                 <div class="container">
-                    <span class="footer__copyright">© Street Lights</span>
+                    <span class="footer__copyright">© 2018 Linguist</span>
 
                     <a href="">About Us</a>
                     <a href="">Terms & Conditions</a>
                     <a href="">Privacy Policy</a>
-                    <a href="https://github.com/street-lights/data-collection-tool" target="_blank">
+                    <a href="https://github.com/pirumart/linguist" target="_blank">
                         Contribute
                     </a>
                 </div>
